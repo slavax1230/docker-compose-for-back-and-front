@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./back-end
+    ports:
+      - "3001:3001"
+    networks:
+      - ubuntu-network
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./front-end
+    ports:
+      - "3000:3000"
+    networks:
+      - ubuntu-network
+
+networks:
+  ubuntu-network:
